@@ -6,6 +6,9 @@ This repository contains an R-based analysis pipeline for integrating and cluste
 **Dataset:** 
 The public dataset utilized in this project is sourced from the NCBI Gene Expression Omnibus (GEO) under the accession number **[GSE197023](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE197023)**. The dataset focuses on Atopic Dermatitis, comparing Lesional (LS), Non-lesional (NL), and Healthy Control (HC) skin tissues.
 
+## 📚 References & Acknowledgements
+* **Reference Pipeline:** This project's workflow was closely adapted from and inspired by the excellent guide and code available at [juno-kim/visium-atopic-dermatitis](https://gitlab.com/juno-kim/visium-atopic-dermatitis). 
+
 ## 🛠 Prerequisites
 The analysis is conducted in R and requires the following packages:
 * `Seurat` (v5.0 or higher)
