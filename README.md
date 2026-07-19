@@ -3,7 +3,8 @@
 ## 📌 Overview
 This repository contains an R-based analysis pipeline for integrating and clustering 10x Genomics Visium spatial transcriptomics data. The pipeline is optimized for **Seurat v5** and is designed to process multiple samples (19 samples) efficiently, avoiding common memory allocation and data structure errors during integration.
 
-The dataset focuses on Atopic Dermatitis, comparing Lesional (LS), Non-lesional (NL), and Healthy Control (HC) skin tissues.
+**Dataset:** 
+The public dataset utilized in this project is sourced from the NCBI Gene Expression Omnibus (GEO) under the accession number **[GSE197023](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE197023)**. The dataset focuses on Atopic Dermatitis, comparing Lesional (LS), Non-lesional (NL), and Healthy Control (HC) skin tissues.
 
 ## 🛠 Prerequisites
 The analysis is conducted in R and requires the following packages:
@@ -15,7 +16,7 @@ The analysis is conducted in R and requires the following packages:
 ## 🚀 Pipeline Workflow
 
 ### Part 1: Data Loading & Preprocessing
-* Loaded 20 raw Visium samples.
+* Loaded 20 raw Visium samples from GSE197023.
 * Performed Quality Control (QC). 1 sample was automatically excluded due to low quality.
 * Log-normalization applied to the remaining 19 samples.
 * Output: `SampleListVisium_LogNorm.rds`
@@ -36,7 +37,7 @@ The analysis is conducted in R and requires the following packages:
 * Output: `Final_IntegratedVisium.rds`, `UMAP_Visium_Integrated.png`, `SpatialClusterPlots_Visium_v5_CLR.png`
 
 ## 💡 Key Technical Fixes Included
-This pipeline includes robust error-handling for common Seurat v5 integration issues:
+This pipeline includes robust error-handling for common Seurat v5 integration issues encountered in local Windows environments:
 1. **Missing `dimnames` Error Fix:** Prevented layer fragmentation errors during PCA by explicitly inheriting `VariableFeatures` from the integrated assay rather than re-running `FindVariableFeatures`.
 2. **Memory Leak Prevention:** Optimized object passing and utilized RPCA for large-scale integration to avoid `bad_alloc` memory errors.
 3. **Automated Metadata Grouping:** Safe string matching (Regex) applied to automatically label disease conditions regardless of sample input order.
